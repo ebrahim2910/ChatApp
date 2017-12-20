@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
 
@@ -15,11 +16,28 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+   
+
+    func userLogin() {
+    
+    
+        Auth.auth().signInAnonymously() {  (user , error) in
+        
+        let userAnonymous  = user?.isAnonymous
+            if userAnonymous == true {
+            
+            let uid = user?.uid
+                
+                print("userId \(uid)")
+            
+            
+            
+            }
+        
+        }
+    
     }
-
-
+    
+    
 }
 
